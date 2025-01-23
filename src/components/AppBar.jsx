@@ -8,7 +8,7 @@ function AppBar() {
 
     const [sideBarOpen, setSideBarOpen] = useState(false);
 
-    const [menuItems, setMenuItems] = useState([
+    const menuItems = [
         {
             name: 'Home',
             onClick: () => setPage('Home')
@@ -18,14 +18,14 @@ function AppBar() {
             onClick: () => setPage('About Me')
         },
         {
-            name: 'Projects',
-            onClick: () => setPage('Projects')
+            name: 'Showcase',
+            onClick: () => setPage('Showcase')
         },
         {
             name: 'Contact',
             onClick: () => setPage('Contact')
         }
-    ]);
+    ];
 
   return (
     <div className="fixed top-5 left-[50%] translate-x-[-50%] w-11/12 z-50 bg-gradient-to-br from-primary-600 via-primary-700 to-primary-900 rounded-lg shadow-lg">
