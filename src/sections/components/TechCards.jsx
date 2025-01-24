@@ -16,7 +16,7 @@ function TechCards() {
   return (
     <div className='mt-20'>
         <h2 className='text-center text-2xl sm:text-4xl font-bold select-none'> Tech That Drives My Development </h2>
-        <Marquee pauseOnHover={screenWidth > 1024 ? true : false} pauseOnClick={true} speed={90}>
+        <Marquee pauseOnClick={true} speed={90}>
             <div className='mt-8 flex flex-row gap-3 justify-evenly'>
                 <TechCard 
                     cardClassName="!from-[#4f5b93] !via-[#4f5b93] !to-[#000] text-black shadow-[#4f5b93]"
@@ -53,7 +53,7 @@ function TechCards() {
 
                 <TechCard 
                     cardClassName="!from-[#f4b72f] !via-[#f8d35a] !to-[#000] text-black shadow-[#f4b72f]" // Filament's golden yellow
-                    image={<><img src={filamentImage} className='h-12'/></>}
+                    image={<><img src={filamentImage} className='h-6 mt-2'/></>}
                     content={`Proficient in building flexible and intuitive admin panels with Filament's modern tools.`}
                 />
 
@@ -91,7 +91,6 @@ function TechCards() {
 }
 
 function TechCard({cardClassName, image, content}) {
-    console.log(image);
     return (
         <Card className={`w-[350px] ${cardClassName}`}>
           <div className="container mx-auto text-center">

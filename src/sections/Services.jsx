@@ -1,8 +1,9 @@
 import React from 'react'
 import Card from '../components/Card';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBug, faCloudUploadAlt, faExchangeAlt, faGift, faGlobe, faGraduationCap, faLaptopCode, faMobileAlt, faServer, faTachometerAlt, faTasks } from '@fortawesome/free-solid-svg-icons';
+import { faBug, faBullhorn, faChartBar, faCloudUploadAlt, faExchangeAlt, faGlobe, faGraduationCap, faImages, faLaptopCode, faMobileAlt, faPaintBrush, faPalette, faServer, faTachometerAlt } from '@fortawesome/free-solid-svg-icons';
 import { faLightbulb } from '@fortawesome/free-regular-svg-icons';
+import { faWordpress } from '@fortawesome/free-brands-svg-icons';
 
 function Services() {
 
@@ -64,6 +65,39 @@ function Services() {
 		},
 	]
 
+	const teamServices = [
+		{
+			title: 'Data Analysis',
+			description: 'We analyze and interpret your data to provide meaningful insights that drive better decision-making.',
+			icon: <FontAwesomeIcon icon={faChartBar} size={iconSize} />,
+		},
+		{
+			title: 'WordPress Site Development',
+			description: 'We create professional and fully customized WordPress websites tailored to your business needs.',
+			icon: <FontAwesomeIcon icon={faWordpress} size={iconSize} />,
+		},
+		{
+			title: 'Digital Marketing',
+			description: 'Our team crafts strategies to boost your online presence, including SEO, social media, and paid ads.',
+			icon: <FontAwesomeIcon icon={faBullhorn} size={iconSize} />,
+		},
+		{
+			title: 'Graphic Designing',
+			description: 'We design eye-catching visuals that resonate with your brand identity and captivate your audience.',
+			icon: <FontAwesomeIcon icon={faPalette} size={iconSize} />,
+		},
+		{
+			title: 'Logo Designing',
+			description: 'We design memorable and impactful logos that perfectly reflect your brand and its values.',
+			icon: <FontAwesomeIcon icon={faPaintBrush} size={iconSize} />,
+		},
+		{
+			title: 'Social Media Design Packages',
+			description: 'We create engaging and professional designs for social media platforms, helping your brand stand out.',
+			icon: <FontAwesomeIcon icon={faImages} size={iconSize} />,
+		},
+	];	
+
   return (
     <section id="services" className="py-24">
 		<Container 
@@ -86,6 +120,19 @@ function Services() {
 		>
 			{
 				communityServices.map((service) => (
+					<ServiceCard key={service.title} service={service} />
+				))
+			}
+		</Container>
+		<Container 
+			title="Services offered by the team" 
+			description="
+				No matter the challenge, our team is ready with expert services to achieve your goals.
+			"
+			className="mt-20"
+		>
+			{
+				teamServices.map((service) => (
 					<ServiceCard key={service.title} service={service} />
 				))
 			}

@@ -1,7 +1,18 @@
-import React, { useEffect } from 'react'
+import React, { useContext } from 'react'
 import Button from '../components/Button'
+import { AppBarContext, SectionContext } from '../App'
 
 function Hero() {
+
+  const {setSection} = useContext(SectionContext);
+  const {setSideBarOpen} = useContext(AppBarContext);
+
+  const scrollToSection = function(sectionId) {
+    document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+    setSideBarOpen(false);
+    setSection(sectionId);
+  }
+
   return (
     <section id='home' className="bg-gray-900 text-white py-24 h-screen flex items-center">
         <div className="container mx-auto text-center">
@@ -17,7 +28,7 @@ function Hero() {
                 <Button onClick={() => window.open(import.meta.env.VITE_GET_STARTED_LINK)}>
                   Get Started
                 </Button>
-                <Button onClick={() => window.location.href='#projects'} variant='outline'>
+                <Button onClick={() => scrollToSection('showcase')} variant='outline'>
                   Browse my Projects
                 </Button>
             </div>

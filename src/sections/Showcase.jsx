@@ -28,7 +28,7 @@ function Showcase() {
     ];
 
     return (
-        <section id="portfolio" className="py-24 min-h-screen">
+        <section id="showcase" className="py-24 min-h-screen">
             <div className="container mx-auto text-center">
                 <h2 className="text-3xl font-bold mb-4">Showcase</h2>
                 <p className="text-lg mb-8">
@@ -42,7 +42,9 @@ function Showcase() {
                         ))
                     }
                 </div>
-                <p className='text-primary-50 mt-8 text-xl'>And More...</p>
+                <div className='mt-8'>
+                    <Button onClick={() => window.open(import.meta.env.VITE_GITTHUB_PROFILE_LINK)} className='!py-1.5 !px-8 mt-2'> View More</Button>
+                </div>
             </div>
             </section>
     )
@@ -50,20 +52,24 @@ function Showcase() {
 
 function ProjectCard({project}) {
   return (
-    <Card onClick={() => window.open(project.link)} className={'!p-2 cursor-pointer'}>
-        <img 
-            src={project.image} 
-            alt={project.title}
-            className="w-full h-48 object-cover" 
-        />
-        <div className="p-1">
-        <h3 className="text-xl font-extrabold text-white">{project.title}</h3>
-        <p className="text-primary-50">
-            {project.description}
-        </p>
-        <Button onClick={() => window.open(project.link)} className='py-1 mt-2'>
-            View
-        </Button>
+    <Card onClick={() => window.open(project.link)} className={'!p-2 cursor-pointer flex flex-col justify-between'}>
+        <div>
+            <img 
+                src={project.image} 
+                alt={project.title}
+                className="w-full h-48 object-cover" 
+            />
+            <div className="p-1">
+                <h3 className="text-xl font-extrabold text-white">{project.title}</h3>
+                <p className="text-primary-50">
+                    {project.description}
+                </p>
+            </div>
+        </div>
+        <div>
+            <Button onClick={() => window.open(project.link)} variant='outline' className='!py-1.5 !px-8 mt-2'>
+                View
+            </Button>
         </div>
     </Card>
   )

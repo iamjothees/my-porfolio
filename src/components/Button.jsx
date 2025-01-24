@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-function Button({onClick, variant = 'primary', className = '', children}) {
+function Button({onClick, variant = 'primary', className = '', type='button', children}) {
 
     const [ variantClassName, setVariantClassName ] = useState("");
 
@@ -22,6 +22,7 @@ function Button({onClick, variant = 'primary', className = '', children}) {
     })
     return (
         <button 
+            type={type}
             onClick={onClick}
             className={"font-bold py-3 px-6 rounded-full " + variantClassName + className}
             >
