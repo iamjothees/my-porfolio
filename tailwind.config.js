@@ -11,7 +11,7 @@ export default {
       fontFamily: {
         nunito: 'Nunito, sans-serif',
         jersey: '"Jersey 15", serif',
-        mono: '"Roboto Mono", serif',
+        engagement: '"Engagement", serif',
       },
     },
     colors: {

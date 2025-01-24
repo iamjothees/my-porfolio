@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import Button from '../components/Button'
-import { toast } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 
 function Contact() {
     const formRef = useRef();
@@ -17,11 +17,6 @@ function Contact() {
         const formData = new FormData(formRef.current);
         const data = Object.fromEntries(formData);
         if(!validateData(data)) return;
-
-        toast("Sending...");
-        console.log(data);
-        
-        return;
 
         fetch(import.meta.env.VITE_ENQUIRY_API_LINK, {
             method: 'POST',
@@ -90,16 +85,17 @@ function Contact() {
                 </Button>
                 </form>
 
-                <div className="mt-8 text-center">
-                <a href={import.meta.env.VITE_LINKEDIN_PROFILE_LINK} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
+                <div className="mt-8 text-center font-semibold">
+                <a href={import.meta.env.VITE_LINKEDIN_PROFILE_LINK} target="_blank" rel="noopener noreferrer" className="text-white hover:text-primary-500 hover:underline">
                     LinkedIn
                 </a>
                 <span className="mx-4">|</span>
-                <a href={import.meta.env.VITE_FACEBOOK_PROFILE_LINK} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
+                <a href={import.meta.env.VITE_FACEBOOK_PROFILE_LINK} target="_blank" rel="noopener noreferrer" className="text-white hover:text-primary-500 hover:underline">
                     Facebook
                 </a>
                 </div>
             </div>
+            <ToastContainer theme="dark" />
         </section>
     )
 }

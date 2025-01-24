@@ -41,9 +41,10 @@ function AppBar({isHomeSection}) {
             onClick: ()=>scrollToSection('contact')
         },
         {
-            id: 'login',
-            name: 'Login',
-            onClick: () => window.open(import.meta.env.VITE_GET_STARTED_LINK)
+            id: 'get-started',
+            name: 'Get Started',
+            onClick: () => window.open(import.meta.env.VITE_GET_STARTED_LINK),
+            highlight: true,
         }
     ];
 
@@ -56,14 +57,14 @@ function AppBar({isHomeSection}) {
     <>
         <div className={`fixed top-5 left-[50%] translate-x-[-50%] w-11/12 z-50 bg-gradient-to-br ${ isHomeSection ? "from-primary-500 via-primary-600 to-primary-700" : "from-[#204561] via-[#08273a] to-[#05395c] border border-primary-500 shadow-md shadow-navy-500"} rounded-lg shadow-lg`}>
             <div className="container mx-auto px-4 py-3 flex justify-between items-center">
-                <a href="#Home" className="font-bold text-lg">
+                <a href="#Home" className="font-bold text-lg mx-4">
                     <Logo />
                 </a>
-                <nav>
-                    <div onClick={handleMenuButtonClick} className={"text-white cursor-pointer p-2 rounded-lg md:hidden bg-primary-200 bg-opacity-25 hover:text-white" + (sideBarOpen ? " bg-primary-200 bg-opacity-25 !text-white" : "")}>
+                <nav className='overflow-x-scroll'>
+                    <div onClick={handleMenuButtonClick} className={"text-white cursor-pointer p-2 rounded-lg sm:hidden bg-primary-200 bg-opacity-25 hover:text-white" + (sideBarOpen ? " bg-primary-200 bg-opacity-25 !text-white" : "")}>
                         <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  strokeWidth="2"  strokeLinecap="round"  strokeLinejoin="round"  className="icon icon-tabler icons-tabler-outline icon-tabler-menu-deep"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 6h16" /><path d="M7 12h13" /><path d="M10 18h10" /></svg>
                     </div>
-                    <ul className="hidden md:flex space-x-2">
+                    <ul className="hidden sm:flex space-x-2">
                         {
                             menuItems.map((item) => {
                                 return (
@@ -99,8 +100,8 @@ function AppBar({isHomeSection}) {
 
 const MenuItem = ({item, section, className=''}) => {
     return (
-        <li onClick={item.onClick} className={`text-gray-300 px-5 py-1.5 rounded-lg cursor-pointer hover:bg-primary-200 hover:text-white hover:bg-opacity-25 ${(section === item.id ? "bg-primary-200 bg-opacity-25 !text-white" : "")} ${className}`}>
-            <span> {item.name} </span>
+        <li onClick={item.onClick} className={`text-gray-300 px-5 py-1.5 rounded-lg cursor-pointer hover:bg-primary-200 hover:text-white hover:bg-opacity-25 ${(section === item.id ? "bg-primary-200 bg-opacity-25 !text-white" : "")} ${className} ${item.highlight ? "!text-white font-semibold" : ""}`}>
+            <nobr> {item.name} </nobr>
         </li>
     )
 }
