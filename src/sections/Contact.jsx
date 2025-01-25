@@ -26,7 +26,7 @@ function Contact() {
             body: JSON.stringify(data),
         })
         .then(response => {
-            console.log(response);
+            if (response.status !== 200) throw new Error("Something went wrong!");
             toast.success("Message sent successfully!");
         })
         .catch(error => {
