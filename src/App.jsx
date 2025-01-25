@@ -58,10 +58,12 @@ function ContactFab(){
   return (
     <a 
       href={`https://wa.me/${import.meta.env.VITE_WHATSAPP_NUMBER}`}
-      className="fixed bottom-6 right-6 bg-green-600 hover:bg-green-700 text-white h-14 w-14 rounded-full shadow-lg flex items-center justify-center transition-transform transform hover:scale-105 z-50"
+      className="fixed bottom-7 right-7 md:bottom-10 md:right-10 bg-green-600 hover:bg-green-700 text-white text-xl h-14 w-14 rounded-full shadow-md shadow-green-800 hover:scale-105 z-50"
       target="_blank" rel="noopener noreferrer" title="Contact Joe on WhatsApp"
     >
-      <FontAwesomeIcon icon={faWhatsapp} size='2x' />
+      <div className='relative top-[50%] left-[50%] transform -translate-y-1/2 -translate-x-1/4 -ms-0.5'>
+        <FontAwesomeIcon icon={faWhatsapp} size='2x' />
+      </div>
     </a>
 
   );
