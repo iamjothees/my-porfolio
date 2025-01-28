@@ -4,6 +4,7 @@ import squadUpImage from '../../public/projects/squad_up-dashboard.png'
 import ecommErpImage from '../../public/projects/ecomm_erp-product-view-page.png'
 import tasksImage from '../../public/projects/tasks-task-page.png'
 import Button from '../components/Button';
+import Chip from '../components/Chip'
 
 function Showcase() {
     const projects = [
@@ -18,12 +19,14 @@ function Showcase() {
             description: 'An e-commerce platform for online stores with insightful reports',
             image: ecommErpImage,
             link: 'https://ecomm-erp.joecodes.in/admin',
+            tags: [{label: 'Under Development'}],
         },
         {
             title: 'Tasks',
             description: 'A task management app with scheduling and reminders',
             image: tasksImage,
             link: 'https://tasks.joecodes.in',
+            tags: [{label: 'Prototype'}],
         },
     ];
 
@@ -61,6 +64,9 @@ function ProjectCard({project}) {
             />
             <div className="p-1">
                 <h3 className="text-xl font-extrabold text-white">{project.title}</h3>
+                <h6 className="py-2 flex flex-row flex-wrap gap-2 justify-center align-middle">
+                    { project.tags?.map((tag) => ( <Chip key={tag.label}>{tag.label}</Chip> )) }
+                </h6>
                 <p className="text-primary-50">
                     {project.description}
                 </p>
